@@ -1,38 +1,169 @@
+/* Global resets */
+
+*,
+*::before,
+*::after {
+  margin: 5;
+  padding: 3;
+  box-sizing: inherit
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 70%;
+  /* font-family: "Montserrat", "sans-serif"; */
+  font-family: 'Source Code Pro',  "sans-serif";
+}
+
+/* Wrapper */
+
+.wrapper {
+  margin: 0 auto;
+  width: 95%;
+  max-width: 960px;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* height: 100vh; */
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  border: 1px solid black;
+  background-color: #247BA0;
+  /* height: 100%; */
+}
+
+.logo {
+  
+}
+
+.logo h5 {
+  font-family: "Bungee Shade",  "sans-serif" ;
+  font-size: 55px;
+  text-shadow: 2px 2px 2px #aaa;
+  margin: 1px;
+  height: inherit;
+}
+
+/* SignIn Coniainer*/
+.signin-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  /* border: 1px solid black; */
+  background-color: #70C1B3 ;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.signin-button {
+  display: flex;
+  font-size: 13px;
+  width: 30%;
+  align-self: center;
+  display:inline-block;
+  padding: 0.5em 1.2em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:800;
+  color:#FFFFFF;
+  background-color:#FF1654;
+  text-align:center;
+  transition: all 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Wellcome and Signout */
+.welcome-and-signout-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* border: 1px solid black; */
+  background-color: #70C1B3 ;
+  height: 100%;
+}
+
+.signout-button {
+  display: flex;
+  font-size: 10px;
+  width: 15%;
+  align-self: center;
+  display:inline-block;
+  padding: 0.0em 0.2em;
+  margin:0 0.1em 0.1em 0;
+  border-radius:1em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:800;
+  color:#FFFFFF;
+  background-color:#FF1654;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+/* Panic container */
+.panic-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  background-color: #70C1B3 ;
+  height: 100%;
+}
+
+.panic-buttons-div {
+  align-items: stretch;
+}
+
+.toggle-panic-button{
+  display: flex;
+  font-size: 10px;
+  /* width: 30%; */
+  align-self: center;
+  display:inline-block;
+  padding: 0.2em 0.2em;
+  margin:0 0.2em 0.2em 0;
+  border-radius:1em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  background-color:rgb(102, 100, 100);
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.update-panic-reason-button{
+  display: flex;
+  font-size: 10px;
+  /* width: 30%; */
+  align-self: center;
+  display:inline-block;
+  padding: 0.2em 0.2em;
+  margin:0 0.2em 0.2em 0;
+  border-radius:1em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  background-color:rgb(102, 100, 100);
+  text-align:center;
+  transition: all 0.2s;
 }
