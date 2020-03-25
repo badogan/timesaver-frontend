@@ -3,31 +3,33 @@ import { useState, useEffect } from "react";
 const useValidation = () => {
   const [usernameToValidate, setUsernameToValidate] = useState(null);
   const [passwordToValidate, setPasswordToValidate] = useState(null);
-  const [errorArray, setErrorArray] = useState([]);
+  const [errorArray, setErrorArray] = useState(null);
 
   useEffect(() => {
     runValidationRules();
   }, [usernameToValidate, passwordToValidate]);
 
   useEffect(() => {
-    setErrorArray([])
+    setErrorArray(null);
   }, []);
 
-  const addToErrorArray = string => {
-    setErrorArray(errorArray => [...errorArray, string]);
+  const pushValidationResultsToErrorArray = validationTestResults => {
+    setErrorArray(errorArray => [...errorArray].concat(validationTestResults));
   };
 
   const runValidationRules = () => {
-      setErrorArray([])
+    setErrorArray([]);
+    let validationTestResults = [];
     if (!passwordToValidate) {
-      addToErrorArray("Password does not exist!");
+      validationTestResults.push("Password does not exist!");
     }
     if (!usernameToValidate) {
-      addToErrorArray("Username does not exist!");
+      validationTestResults.push("Username does not exist!");
     }
     if (passwordToValidate && passwordToValidate.length < 5) {
-      addToErrorArray("Password length less than 5 characters!");
+      validationTestResults.push("Password length less than 5 characters!");
     }
+    pushValidationResultsToErrorArray(validationTestResults);
   };
 
   const validate = (name, password) => {

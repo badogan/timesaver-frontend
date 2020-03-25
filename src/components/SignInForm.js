@@ -1,33 +1,32 @@
 import React, { useState, useEffect } from "react";
 import useValidation from "../hooks/useValidation";
-import ListErrors from './ListErrors'
+import ListErrors from "./ListErrors";
 
 const SignInForm = props => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const { validate, errorArray } = useValidation();
 
-  const sendToUpdateUserSignIn = event => {
-    validate(username, password);
+  useEffect(() => {
+    doSignIn();
+  }, [errorArray]);
 
-
-    //   if (validationResultsArray.length === 0) {
-    //     console.log("everything is OK!");
-    //     // event.preventDefault();
-    //     props.updateUserSignin({ username, password });
-    //     // document.getElementById('form33').reset()
-    //   } else {
-    //     console.log("somethngs wrong");
-    //     console.log(validationResultsArray);
-    //   }
+  const doSignIn = () => {
+    if (errorArray && (errorArray.length === 0)) {
+      console.log("I can initiate the process now!");
+      props.updateUserSignin({ username, password });
+    }
   };
+
+  const sendToUpdateUserSignIn = () => validate(username, password)
 
   const handlePassword = e => setPassword(e.target.value);
   const handleUsername = e => setUsername(e.target.value);
 
   return (
     <div className="signin-container wrapper">
-        <ListErrors errorArray={errorArray}/>
+        {errorArray ? <ListErrors errorArray={errorArray} /> : null }
+    
       <h3>Signin form</h3>
       <form id="form33">
         {/* <label>Username: </label> */}
