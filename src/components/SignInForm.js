@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import useValidation from "../hooks/useValidation";
+import ListErrors from './ListErrors'
 
 const SignInForm = props => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  const { validate } = useValidation();
+  const { validate, errorArray } = useValidation();
 
   const sendToUpdateUserSignIn = event => {
-    validate(username, password)
+    validate(username, password);
+
 
     //   if (validationResultsArray.length === 0) {
     //     console.log("everything is OK!");
@@ -18,19 +20,14 @@ const SignInForm = props => {
     //     console.log("somethngs wrong");
     //     console.log(validationResultsArray);
     //   }
-    };
+  };
 
   const handlePassword = e => setPassword(e.target.value);
   const handleUsername = e => setUsername(e.target.value);
 
-  //   Not sure if this is necessary
-
-  //   useEffect(() => {
-  //     document.getElementById('form33').reset()
-  //   }, []);
-
   return (
     <div className="signin-container wrapper">
+        <ListErrors errorArray={errorArray}/>
       <h3>Signin form</h3>
       <form id="form33">
         {/* <label>Username: </label> */}
@@ -51,7 +48,7 @@ const SignInForm = props => {
       </form>
       <br />
       <button className="signin-button" onClick={sendToUpdateUserSignIn}>
-        {" "}
+        {/* {" "} */}
         Signin
       </button>
     </div>
