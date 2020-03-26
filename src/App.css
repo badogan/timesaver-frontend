@@ -115,6 +115,39 @@ body {
   transition: all 0.2s;
 }
 
+.getselections-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  background-color: #70C1B3 ;
+  height: 100%;
+}
+
+.news-container {
+  background-color:  #70C1B3 ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  /* border-radius: 1rem; */
+
+}
+
+.eachnews {
+  display: flex;
+  width: 33%;
+  border-radius: .2rem;
+  padding: .1rem .1rem 1rem .2rem;
+  margin: .5px;
+  background-color: rgba(77, 72, 126, 0.5)  ;
+}
+
+.image{
+  width: 50%;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
 /* Panic container */
 .panic-container {
   display: flex;
